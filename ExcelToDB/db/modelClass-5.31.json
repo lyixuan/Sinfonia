@@ -1,0 +1,234 @@
+[{"base": "AccessToken", "plural": "accessToken"}, {
+        "base": "User",
+        "plural": "user",
+        "properties": {
+            "uPassword": {"type": "String"},
+            "uType": {"type": "String"},
+            "nickName": {"type": "String"},
+            "uPercent": {"type": "String"}
+        },
+        "acls": [{
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "create"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "deleteById"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "removeById"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "login"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "logout"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "findById"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "updateAttributes"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "confirm"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "verifyEmail"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "resetPasswordRequest"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "resetPassword"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "exists"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "find"
+        }, {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "ALLOW",
+            "property": "count"
+        }, {"principalType": "ROLE", "principalId": "$everyone", "permission": "ALLOW", "property": "findOne"}],
+        "relations": {"accessTokens": {"type": "Relation", "model": "accessToken", "foreignKey": "userId"}}
+    }, {"base": "RoleMapping", "plural": "roleMapping"}, {
+        "base": "Role",
+        "plural": "role",
+        "relations": {"principals": {"type": "Relation", "model": "roleMapping", "foreignKey": "roleId"}}
+    }, {"base": "File", "plural": "file"}, {
+        "plural": "dailyGoods",
+        "properties": {
+            "id": {"type": "String", "id": true},
+            "gId": {"type": "String"},
+            "gName": {"type": "String"},
+            "gMainPic": {"type": "String"},
+            "gDetailUrl": {"type": "String"},
+            "gCategory1": {"type": "String"},
+            "gTKLink": {"type": "String"},
+            "gPrice": {"type": "String"},
+            "gMonthVolume": {"type": "String"},
+            "gCommissionPre": {"type": "String"},
+            "gCommission": {"type": "String"},
+            "gSellerWW": {"type": "String"},
+            "gSellerId": {"type": "String"},
+            "gShopName": {"type": "String"},
+            "gPlatformType": {"type": "String"},
+            "gTicketId": {"type": "String"},
+            "gTicketGross": {"type": "String"},
+            "gTicketRemain": {"type": "String"},
+            "gTicketPrice": {"type": "String"},
+            "gTicketLink": {"type": "String"},
+            "gTicketShortLink": {"type": "String"},
+            "gTicketPassword": {"type": "String"},
+            "gPassword": {"type": "String"},
+            "gStartTime": {"type": "String"},
+            "gEndTime": {"type": "String"},
+            "gTicketBeginDate": {"type": "String"},
+            "gTicketEndDate": {"type": "String"}
+        }
+    }, {
+        "plural" : "sharedGoods",
+        "properties" : {
+            "id": {"type": "String", "id": true},
+            "sUserId" : {
+                "type" : "String"
+            },
+            "sUserName" : {
+                "type" : "String"
+            },
+            "sPercent" : {
+                "type" : "String"
+            },
+            "sStatus" : {
+                "type" : "String"
+            },
+            "sCommission" : {
+                "type" : "String"
+            },
+            "sPlatForm" : {
+                "type" : "String"
+            },
+
+            "dId" : {
+                "type" : "String"
+            },
+            "gCreatedAt" : {
+                "type" : "String"
+            },
+            "gUpdatedAt" : {
+                "type" : "String"
+            },
+
+
+            "gId" : {
+                "type" : "String"
+            },
+            "gName" : {
+                "type" : "String"
+            },
+            "gMainPic" : {
+                "type" : "String"
+            },
+            "gDetailUrl" : {
+                "type" : "String"
+            },
+            "gCategory1" : {
+                "type" : "String"
+            },
+            "gTKLink" : {
+                "type" : "String"
+            },
+            "gPrice" : {
+                "type" : "String"
+            },
+            "gMonthVolume" : {
+                "type" : "String"
+            },
+            "gCommissionPre" : {
+                "type" : "String"
+            },
+            "gCommission" : {
+                "type" : "String"
+            },
+            "gSellerWW" : {
+                "type" : "String"
+            },
+            "gSellerId" : {
+                "type" : "String"
+            },
+            "gShopName" : {
+                "type" : "String"
+            },
+            "gPlatformType" : {
+                "type" : "String"
+            },
+            "gTicketId" : {
+                "type" : "String"
+            },
+            "gTicketGross" : {
+                "type" : "String"
+            },
+            "gTicketRemain" : {
+                "type" : "String"
+            },
+            "gTicketPrice" : {
+                "type" : "String"
+            },
+            "gTicketLink" : {
+                "type" : "String"
+            },
+            "gTicketShortLink" : {
+                "type" : "String"
+            },
+            "gTicketPassword" : {
+                "type" : "String"
+            },
+            "gPassword" : {
+                "type" : "String"
+            },
+            "gStartTime" : {
+                "type" : "String"
+            },
+            "gEndTime" : {
+                "type" : "String"
+            },
+            "gTicketBeginDate" : {
+                "type" : "String"
+            },
+            "gTicketEndDate" : {
+                "type" : "String"
+            }
+        }}, {"plural": "userReport", "properties": {"id": {"type": "String", "id": true}}}]

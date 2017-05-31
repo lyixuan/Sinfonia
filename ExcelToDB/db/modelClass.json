@@ -98,5 +98,6 @@
                 "gTicketEndTime": {"type": "String"},
                 "gTicketLink": {"type": "String"},
                 "gTicketTGLink": {"type": "String"}
+                "gIsShared": {"type": "String"}
             }
         }]

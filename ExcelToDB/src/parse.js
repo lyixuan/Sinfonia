@@ -6,7 +6,7 @@ var fs = require('fs');
 var requestsArray = [];
 
 //解析Excel
-function parseExcel(filePath, ajaxPath) {
+function parseExcel(filePath, goodType,platform) {
     var list = xlsx.parse(filePath)[0]; // list=[ { name: 'Page1', data: [ [Object], [Object], [Object] ] } ]
     var nowDate = new Date().Format("yyyy-MM-dd");
     var bTime = new Date().Format("yyyy-MM-dd hh:mm:ss.S")
@@ -27,7 +27,7 @@ function parseExcel(filePath, ajaxPath) {
         if (curData.length == 0) continue;
         // var item = changeObjAjax(curData, keyArray, ajaxPath);
         // requestsArray.push(item);
-        var item = changeObjJson(curData, keyArray ,bTime);
+        var item = changeObjJson(curData, keyArray ,bTime,goodType,platform);
         fs.appendFile('../db/dailyGoods.' +nowDate +'.json', JSON.stringify(item), function (err) {
             if (err) {throw err}else{
             }
@@ -56,8 +56,8 @@ function changeObjAjax(curData, keyArray, path) {
 }
 
 // 转换数据格式(json)
-function changeObjJson(curData, keyArray,time) {
-    var obj = {createdAt:time}
+function changeObjJson(curData, keyArray,time,goodType,platform) {
+    var obj = {createdAt:time,gCategory1:goodType,gPlatformType:platform}
     for (var c = 0; c < curData.length; c++) {
         obj[keyArray[c]] = curData[c];
     }

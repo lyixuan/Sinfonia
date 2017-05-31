@@ -5,14 +5,30 @@ var log = require("./log");
 require("./tool");
 var wf = require("./write_file")
 var parse = require("./parse");
+var category = '';
+var platform = '';
+process.argv.forEach(function (val ,index ,array) {
+    // 手动执行arg1 参数 分类
+    if(index == 2){
+        category=val
+    }
+    if(index == 3){ //平台
+        platform=val
+    }
+})
+if(category&&platform){
+    main(category,platform)
 
-function main(arg) {
+}else {
+    main()
+}
+function main(arg,arg1) {
 
 // 加载文件
-    var nowDate = arg ? arg : new Date().Format("yyyy-MM-dd");
-    var dirname = path.resolve(__dirname, '..') + "/excel/精选优质商品清单(内含优惠券)-" + nowDate + ".xls";
+    var nowDate = new Date().Format("yyyy-MM-dd");
+    var dirname = path.resolve(__dirname, '..') + "/excel/" + nowDate + ".xls";
     var logFileName = nowDate + ".parse.log";
-    var filePath = ""
+    var filePath = "";
     try {
         filePath = fs.readFileSync(dirname);
     } catch (e) {
@@ -23,9 +39,8 @@ function main(arg) {
         return
     }
 // 解析文件
-    var result = parse.parseExcel(filePath, '/mcm/api/goods');
+    var result = parse.parseExcel(filePath, arg,arg1);
     // wf.writeFile('../db/dailyGoods.' +nowDate +'.json',JSON.stringify(result));
     wf.writeFile('../log/' +logFileName, log.getLogText());
 }
-main()
-exports.main = main;
+
